@@ -16,8 +16,8 @@ engine.setProperty('voice', voices[0].id)    # Male voice
 # engine.setProperty('voice', voices[1].id)   # Female voice
 
 for page in reader.pages:
-    engine.say(page.extract_text())
-
     engine.save_to_file(page.extract_text(), f'Page {reader.pages.index(page)+1}.mp3')
     engine.runAndWait()
-    engine.stop()
+    print(f"Page {reader.pages.index(page)+1} has been saved")
+
+engine.stop()
